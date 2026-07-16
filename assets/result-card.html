@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+  AI COMPETENCY COMPASS — SHAREABLE RESULT CARD TEMPLATE
+  How to fill this in (for Claude executing the ai-competency-compass skill):
+  1. Replace {{NAME_ROLE}} with the person's first name and/or role (e.g. "Anna · Marketing Manager"). Omit gracefully if unknown: use "My placement".
+  2. Replace {{DATE}} with the date (e.g. "July 2026").
+  3. Mark the person's placement: for each column, add class="you" to exactly ONE cell
+     (ids: aug-foundations..aug-native, auto-foundations..auto-native, agentic-foundations..agentic-native).
+     If a column is "not yet started", add class="you" to the matching "notyet" cell instead (ids: aug-notyet, auto-notyet, agentic-notyet).
+  4. Replace {{NEXT_UP}} with the one growth direction in a short phrase (e.g. "Automation Fluency — workflows my team can rely on").
+  5. Render as an HTML artifact (or screenshot at 1200×1200) so the person can post it to LinkedIn/Slack.
+  Do not change branding, colors, or the footer attribution.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Competency Compass — Result Card</title>
+<style>
+  :root{
+    --navy:#141d2b; --panel:#1b2739; --paper:#f5f7fa; --card:#ffffff;
+    --orange:#f5820d; --blue:#2c8edb; --blue-lt:#e3f0fa; --orange-lt:#fdeedd; --navy-lt:#e8eaef;
+    --ink:#182234; --muted:#5b6778;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#dde3ea;display:flex;justify-content:center;padding:24px;
+       font-family:"Avenir Next","Segoe UI",Inter,Helvetica,Arial,sans-serif;color:var(--ink);}
+  .card{width:1200px;height:1200px;background:var(--paper);border-radius:28px;overflow:hidden;
+        display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(20,29,43,.25);}
+  /* header */
+  .head{background:var(--card);padding:44px 56px 34px;border-bottom:1px solid #e4e8ee;}
+  .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px;}
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand .mark{width:44px;height:44px;border-radius:10px;background:var(--navy);position:relative;overflow:hidden;}
+  .brand .mark::before{content:"";position:absolute;inset:9px;background:
+     linear-gradient(180deg,#e94f4f 0 16%,#f5820d 16% 32%,#f2c94c 32% 48%,#4fb36b 48% 64%,#2c8edb 64% 80%,#7d5fd3 80% 100%);
+     clip-path:polygon(50% 0,100% 100%,0 100%);}
+  .brand .name{font-weight:800;letter-spacing:.04em;font-size:19px;line-height:1.2;}
+  .brand .name small{display:block;color:var(--orange);font-size:12px;letter-spacing:.28em;font-weight:700;}
+  .datebadge{font-size:15px;color:#5b6778;font-weight:600;background:var(--paper);
+             border:1px solid #e4e8ee;padding:8px 16px;border-radius:999px;}
+  h1{font-size:52px;font-weight:900;letter-spacing:.01em;}
+  h1 .o{color:var(--orange);}
+  .tag{margin-top:8px;font-size:19px;font-weight:700;letter-spacing:.12em;color:#3a4659;}
+  .tag .o{color:var(--orange);}
+  .who{margin-top:16px;font-size:22px;font-weight:700;color:var(--blue);}
+  /* grid */
+  .gridwrap{flex:1;padding:40px 56px 10px;}
+  table{width:100%;border-collapse:separate;border-spacing:6px;height:640px;}
+  th{font-size:20px;font-weight:800;letter-spacing:.05em;padding:16px 8px;border-radius:12px;color:#fff;}
+  th small{display:block;font-weight:600;font-size:13px;opacity:.85;margin-top:3px;letter-spacing:.02em;}
+  th.aug{background:var(--blue);} th.auto{background:var(--orange);} th.agentic{background:var(--navy);}
+  th.rowhead{background:transparent;color:var(--ink);text-align:right;padding-right:18px;font-size:17px;}
+  th.rowhead small{color:#7a8496;}
+  td{border-radius:12px;text-align:center;vertical-align:middle;font-size:15px;color:#9aa4b2;
+     font-weight:600;position:relative;}
+  td.augc{background:var(--blue-lt);} td.autoc{background:var(--orange-lt);} td.agenticc{background:var(--navy-lt);}
+  td.notyetrow{background:#eef1f5;color:#aab3bf;font-size:13px;}
+  td.you{outline:4px solid var(--orange);outline-offset:-4px;color:var(--ink);font-weight:800;font-size:17px;
+     padding-top:30px;}
+  td.you::after{content:"YOU ARE HERE";position:absolute;top:10px;left:50%;transform:translateX(-50%);
+     background:var(--orange);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;
+     padding:3px 12px;border-radius:999px;white-space:nowrap;}
+  td.you .pin{display:block !important;font-size:28px;margin-top:8px;}
+  td .pin{display:none;}
+  /* footer */
+  .next{margin:6px 56px 0;background:var(--card);border:1px solid #e4e8ee;border-left:8px solid var(--orange);
+        border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:16px;}
+  .next .lbl{font-size:14px;font-weight:800;letter-spacing:.18em;color:var(--orange);white-space:nowrap;}
+  .next .txt{font-size:22px;font-weight:700;}
+  .foot{margin-top:26px;background:var(--navy);color:#c8d2e0;padding:24px 56px;display:flex;
+        justify-content:space-between;align-items:center;font-size:15px;}
+  .foot b{color:#fff;letter-spacing:.06em;} .foot .o{color:var(--orange);font-weight:800;}
+  .foot .cc{font-size:12.5px;opacity:.75;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <div class="brandrow">
+      <div class="brand">
+        <div class="mark"></div>
+        <div class="name">AI ENABLEMENT<small>— ACADEMY</small></div>
+      </div>
+      <div class="datebadge">{{DATE}}</div>
+    </div>
+    <h1>AI <span class="o">COMPETENCY</span> COMPASS</h1>
+    <div class="tag">FIND YOUR DIRECTION. TAKE YOUR <span class="o">NEXT STEP.</span></div>
+    <div class="who">📍 {{NAME_ROLE}}</div>
+  </div>
+
+  <div class="gridwrap">
+    <table>
+      <tr>
+        <th class="rowhead"></th>
+        <th class="aug">AUGMENTATION<small>AI as a Co-pilot</small></th>
+        <th class="auto">AUTOMATION<small>AI as an Accelerator</small></th>
+        <th class="agentic">AGENTIC<small>AI as an Autopilot</small></th>
+      </tr>
+      <tr>
+        <th class="rowhead">FOUNDATIONS<small>Awareness &amp; Curiosity</small></th>
+        <td id="aug-foundations" class="augc">Foundations<span class="pin" hidden>🧭</span></td>
+        <td id="auto-foundations" class="autoc">Foundations<span class="pin" hidden>🧭</span></td>
+        <td id="agentic-foundations" class="agenticc">Foundations<span class="pin" hidden>🧭</span></td>
+      </tr>
+      <tr>
+        <th class="rowhead">ESSENTIALS<small>Hands-on &amp; Application</small></th>
+        <td id="aug-essentials" class="augc">Essentials<span class="pin" hidden>🧭</span></td>
+        <td id="auto-essentials" class="autoc">Essentials<span class="pin" hidden>🧭</span></td>
+        <td id="agentic-essentials" class="agenticc">Essentials<span class="pin" hidden>🧭</span></td>
+      </tr>
+      <tr>
+        <th class="rowhead">FLUENCY<small>Integration &amp; Optimization</small></th>
+        <td id="aug-fluency" class="augc">Fluency<span class="pin" hidden>🧭</span></td>
+        <td id="auto-fluency" class="autoc">Fluency<span class="pin" hidden>🧭</span></td>
+        <td id="agentic-fluency" class="agenticc">Fluency<span class="pin" hidden>🧭</span></td>
+      </tr>
+      <tr>
+        <th class="rowhead">NATIVE<small>Strategic &amp; Transformational</small></th>
+        <td id="aug-native" class="augc">Native<span class="pin" hidden>🧭</span></td>
+        <td id="auto-native" class="autoc">Native<span class="pin" hidden>🧭</span></td>
+        <td id="agentic-native" class="agenticc">Native<span class="pin" hidden>🧭</span></td>
+      </tr>
+      <tr>
+        <th class="rowhead" style="font-size:14px;">NOT YET STARTED</th>
+        <td id="aug-notyet" class="notyetrow">not yet — and that's fine</td>
+        <td id="auto-notyet" class="notyetrow">not yet — and that's fine</td>
+        <td id="agentic-notyet" class="notyetrow">not yet — and that's fine</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="next">
+    <span class="lbl">NEXT UP →</span>
+    <span class="txt">{{NEXT_UP}}</span>
+  </div>
+
+  <div class="foot">
+    <div><b>AI ENABLEMENT <span class="o">ACADEMY</span></b> &nbsp;·&nbsp; It's a map, not a ladder — find your own spot</div>
+    <div>aienablement.academy &nbsp;·&nbsp; <span class="cc">AI Competency Framework · CC BY 4.0</span></div>
+  </div>
+</div>
+</body>
+</html>
