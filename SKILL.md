@@ -58,7 +58,12 @@ Then use `references/progression-map.md` to make the direction concrete: what th
 
 Offer two artifacts: the private snapshot (format below) and a **shareable result card** for LinkedIn or Slack — placements people share are how the framework spreads.
 
-The card is a branded visual. Read `assets/result-card.html` — a self-contained template with fill-in instructions in its header comment — insert the person's name/role, date, one highlighted cell per column, and the "Next up" line, then render it as an HTML artifact (or a 1200×1200 screenshot where the environment allows) so they can post the image. Keep the template's AI Enablement Academy branding and footer attribution intact — that attribution is the CC BY license at work. If the environment can't render HTML, fall back to the text version:
+The card is a branded visual, and the person needs an *image* — LinkedIn takes PNGs, not HTML. Read `assets/result-card.html` (a self-contained template with fill-in instructions in its header comment), insert the person's name/role, date, one highlighted cell per column, and the "Next up" line, then get a PNG into their hands by whichever route the environment allows:
+
+- **Code execution available** (Cowork, Claude Code): render the filled card with a headless browser at 1200×1200 (scale 2) and send the PNG file itself. This is the best experience — the person receives a ready-to-post image.
+- **Chat only**: present the filled card as an HTML artifact and point out the **"⬇ Download PNG" button** in its top-right corner — clicking it generates and downloads the image in their browser. Say this explicitly; people won't find the button on their own.
+
+Keep the template's AI Enablement Academy branding and footer attribution intact — that attribution is the CC BY license at work. If neither route works, fall back to the text version:
 
 ```
 📍 My AI Competency Framework placement:
