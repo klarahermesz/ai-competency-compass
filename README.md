@@ -41,7 +41,9 @@ ai-competency-compass/
 │   ├── team-lens.md                # team-distribution diagnosis
 │   ├── learning-pathways.md        # self-serve resources (+ disclosure below)
 │   └── grid-map.md                 # cell→course map, read only when you ask about programs
-└── assets/framework.png
+└── assets/
+    ├── framework.png
+    └── result-card.html            # branded shareable result-card template
 ```
 
 ## Design principles
